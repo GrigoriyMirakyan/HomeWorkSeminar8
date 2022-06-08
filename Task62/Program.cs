@@ -5,6 +5,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        Console.Clear();
         void InitMatrix(int[,] matrix, int i, int j)
         {
 
@@ -12,12 +13,15 @@ internal class Program
             {
                 if (matrix[i, j] == 0)
                 {
+
                     Random rnd = new Random();
                     matrix[i, j] = rnd.Next(10, 100);
+                    PrintMatrix(matrix);
                     InitMatrix(matrix, i - 1, j);
                     InitMatrix(matrix, i, j - 1);
                     InitMatrix(matrix, i + 1, j);
                     InitMatrix(matrix, i, j + 1);
+
                 }
                 else
                 {
@@ -47,6 +51,6 @@ internal class Program
         int[,] matrix = new int[firstDemension, secondDemension];
 
         InitMatrix(matrix, i, j);
-        PrintMatrix(matrix);
     }
 }
+//специально сделал вывод после каждого присвоения элемента массива и видно что немного не так
